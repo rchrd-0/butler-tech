@@ -1,7 +1,9 @@
 import { createFileRoute, useRouter } from "@tanstack/react-router";
 import { TicketFilters } from "#/components/tickets/ticket-filters";
 import { TicketTable } from "#/components/tickets/ticket-table";
+import { Alert, AlertDescription, AlertTitle } from "#/components/ui/alert";
 import { Button } from "#/components/ui/button";
+import { Empty, EmptyDescription, EmptyHeader, EmptyTitle } from "#/components/ui/empty";
 
 const ticketFilterValues = {
   status: ["Open", "In Progress", "Closed"],
@@ -66,10 +68,14 @@ function TicketsPage() {
   };
 
   return (
-    <main>
-      <h1>Maintenance tickets</h1>
+    <TicketsLayout>
       {tickets.length === 0 ? (
-        <p>No maintenance tickets are available.</p>
+        <Empty>
+          <EmptyHeader>
+            <EmptyTitle>Ledger empty</EmptyTitle>
+            <EmptyDescription>No maintenance tickets are available.</EmptyDescription>
+          </EmptyHeader>
+        </Empty>
       ) : (
         <>
           <TicketFilters
@@ -81,16 +87,32 @@ function TicketsPage() {
           <TicketTable tickets={tickets} filters={filters} />
         </>
       )}
+    </TicketsLayout>
+  );
+}
+
+function TicketsLayout({ children }) {
+  return (
+    <main className="flex min-h-0 flex-1 flex-col">
+      <h1 className="sr-only">Maintenance tickets</h1>
+      {children}
     </main>
   );
 }
 
+function TicketsCentered({ children }) {
+  return <div className="flex min-h-0 flex-1 items-center justify-center p-[18px]">{children}</div>;
+}
+
 function TicketsPending() {
   return (
-    <main>
-      <h1>Maintenance tickets</h1>
-      <p role="status">Loading tickets…</p>
-    </main>
+    <TicketsLayout>
+      <TicketsCentered>
+        <p className="font-mono text-[12px] text-muted-foreground" role="status">
+          Loading tickets…
+        </p>
+      </TicketsCentered>
+    </TicketsLayout>
   );
 }
 
@@ -99,10 +121,16 @@ function TicketsError({ error }) {
   const retry = () => router.invalidate();
 
   return (
-    <main>
-      <h1>Maintenance tickets</h1>
-      <p role="alert">{error.message}</p>
-      <Button onClick={retry}>Try again</Button>
-    </main>
+    <TicketsLayout>
+      <TicketsCentered>
+        <Alert className="max-w-sm">
+          <AlertTitle>Ledger unavailable</AlertTitle>
+          <AlertDescription>{error.message}</AlertDescription>
+          <Button className="mt-2 w-fit" onClick={retry} size="sm" variant="outline">
+            Try again
+          </Button>
+        </Alert>
+      </TicketsCentered>
+    </TicketsLayout>
   );
 }
