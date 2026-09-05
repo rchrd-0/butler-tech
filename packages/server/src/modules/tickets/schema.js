@@ -1,18 +1,19 @@
 import * as v from "valibot";
 
-export const TicketStatus = v.picklist(["Open", "In Progress", "Closed"]);
+export const TicketStatus = v.picklist(
+  ["Open", "In Progress", "Closed"],
+  "Expected Open, In Progress, or Closed",
+);
 
-export const TicketCategory = v.picklist([
-  "HVAC",
-  "Electrical",
-  "Security",
-  "Plumbing",
-  "Lift",
-  "Civil",
-  "Safety",
-]);
+export const TicketCategory = v.picklist(
+  ["HVAC", "Electrical", "Security", "Plumbing", "Lift", "Civil", "Safety"],
+  "Expected HVAC, Electrical, Security, Plumbing, Lift, Civil, or Safety",
+);
 
-export const TicketPriority = v.picklist(["High", "Medium", "Low"]);
+export const TicketPriority = v.picklist(
+  ["High", "Medium", "Low"],
+  "Expected High, Medium, or Low",
+);
 
 export const TicketEventSchema = v.strictObject({
   at: v.pipe(v.string(), v.isoDate()),
@@ -34,3 +35,22 @@ export const TicketSchema = v.strictObject({
 });
 
 export const TicketsSchema = v.array(TicketSchema);
+
+export const TicketFiltersSchema = v.strictObject(
+  {
+    status: v.optional(TicketStatus),
+    category: v.optional(TicketCategory),
+    priority: v.optional(TicketPriority),
+  },
+  "Unsupported filter",
+);
+
+export const TicketParamsSchema = v.strictObject({
+  id: v.pipe(
+    v.string(),
+    v.regex(/^\d+$/, "Expected a positive integer"),
+    v.transform(Number),
+    v.safeInteger("Expected a positive integer"),
+    v.minValue(1, "Expected a positive integer"),
+  ),
+});
