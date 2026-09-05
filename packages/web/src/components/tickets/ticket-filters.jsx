@@ -29,7 +29,10 @@ function FilterSelect({ id, label, items, value, onValueChange }) {
         <SelectTrigger
           id={id}
           size="sm"
-          className="min-w-[7.5rem] bg-card font-semibold uppercase tracking-[0.06em]"
+          className={cn(
+            "min-w-[8.75rem] bg-card font-semibold uppercase tracking-[0.06em]",
+            value && "border-foreground",
+          )}
         >
           <SelectValue />
         </SelectTrigger>

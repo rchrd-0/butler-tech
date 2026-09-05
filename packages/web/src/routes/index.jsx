@@ -16,7 +16,7 @@ const ticketFilterValues = {
 const ticketFilterOptions = Object.fromEntries(
   Object.entries(ticketFilterValues).map(([name, values]) => [
     name,
-    [{ label: `All ${name}`, value: null }, ...values.map((value) => ({ label: value, value }))],
+    [{ label: `Any ${name}`, value: null }, ...values.map((value) => ({ label: value, value }))],
   ]),
 );
 
