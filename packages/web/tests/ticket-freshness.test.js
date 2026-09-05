@@ -3,6 +3,7 @@ import test from "node:test";
 import {
   deriveTicketFreshness,
   formatRelativeDays,
+  formatTicketDate,
   getAgeSeamPercentage,
 } from "#/lib/ticket-freshness.js";
 
@@ -44,6 +45,7 @@ test("marks unresolved tickets stale at fourteen days but never closed tickets",
 });
 
 test("formats recency labels and clamps the ninety-day age seam", () => {
+  assert.equal(formatTicketDate("2026-09-05"), "05 Sept 2026");
   assert.equal(formatRelativeDays(0), "today");
   assert.equal(formatRelativeDays(1), "1d ago");
   assert.equal(formatRelativeDays(12), "12d ago");

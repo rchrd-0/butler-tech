@@ -1,6 +1,7 @@
 import { createFileRoute, useRouter } from "@tanstack/react-router";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { TicketFilters } from "#/components/tickets/ticket-filters";
+import { TicketInspectionDialog } from "#/components/tickets/ticket-inspection-dialog";
 import { TicketTable } from "#/components/tickets/ticket-table";
 import { TicketWidgets } from "#/components/tickets/ticket-widgets";
 import { Alert, AlertDescription, AlertTitle } from "#/components/ui/alert";
@@ -59,6 +60,7 @@ function TicketsPage() {
   const tickets = useMemo(() => deriveTicketsFreshness(loadedTickets), [loadedTickets]);
   const filters = Route.useSearch();
   const navigate = Route.useNavigate();
+  const [selectedTicket, setSelectedTicket] = useState(null);
 
   const updateFilter = (name, value) => {
     navigate({
@@ -89,7 +91,13 @@ function TicketsPage() {
             onClear={clearFilters}
           />
           <TicketWidgets tickets={tickets} />
-          <TicketTable tickets={tickets} filters={filters} />
+          <TicketTable tickets={tickets} filters={filters} onInspect={setSelectedTicket} />
+          <TicketInspectionDialog
+            ticket={selectedTicket}
+            onOpenChange={(open) => {
+              if (!open) setSelectedTicket(null);
+            }}
+          />
         </>
       )}
     </TicketsLayout>

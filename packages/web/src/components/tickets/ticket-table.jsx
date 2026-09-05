@@ -12,6 +12,7 @@ import { cn } from "cn";
 import { useMemo } from "react";
 import {
   TicketPriorityIndicator,
+  TicketStaleBadge,
   TicketStatusIndicator,
 } from "#/components/tickets/ticket-indicators";
 import { Empty, EmptyHeader, EmptyTitle } from "#/components/ui/empty";
@@ -101,11 +102,7 @@ function ActivityCell({ activityDays, stale, updated }) {
       >
         {formatRelativeDays(activityDays)}
       </time>
-      {stale ? (
-        <span className="shrink-0 border border-foreground px-1 py-px font-bold font-sans text-[9.5px] uppercase leading-[1.2] tracking-[0.1em]">
-          Stale
-        </span>
-      ) : null}
+      {stale ? <TicketStaleBadge /> : null}
     </span>
   );
 }
@@ -128,14 +125,16 @@ const columns = columnHelper.columns([
   columnHelper.accessor("title", {
     header: "Description",
     cell: ({ getValue, row }) => (
-      <span
+      <button
+        aria-haspopup="dialog"
         className={cn(
-          "text-[14px]",
+          "block max-w-full truncate text-left text-[14px] underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring",
           isClosed(row.original) ? "text-muted-foreground" : "font-medium",
         )}
+        type="button"
       >
         {getValue()}
-      </span>
+      </button>
     ),
   }),
   columnHelper.accessor("status", {
@@ -206,7 +205,7 @@ const columnWidths = {
   activity: "w-[136px]",
 };
 
-export function TicketTable({ tickets, filters }) {
+export function TicketTable({ tickets, filters, onInspect }) {
   const { category, priority, status } = filters;
   const columnFilters = useMemo(
     () => [
@@ -216,7 +215,6 @@ export function TicketTable({ tickets, filters }) {
     ],
     [status, category, priority],
   );
-
   const table = useTable({
     features,
     columns,
@@ -273,8 +271,9 @@ export function TicketTable({ tickets, filters }) {
               ) : (
                 rows.map((row) => (
                   <tr
-                    className="h-9 border-border-subtle border-b transition-colors hover:bg-muted"
+                    className="h-9 cursor-pointer border-border-subtle border-b transition-colors focus-within:bg-muted hover:bg-muted"
                     key={row.id}
+                    onClick={() => onInspect(row.original)}
                   >
                     {row.getAllCells().map((cell) => (
                       <td className="truncate px-2.5 align-middle" key={cell.id}>

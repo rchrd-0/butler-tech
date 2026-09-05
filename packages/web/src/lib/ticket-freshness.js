@@ -1,5 +1,11 @@
 const MILLISECONDS_PER_DAY = 86_400_000;
 const AGE_SEAM_DAYS = 90;
+const ticketDateFormatter = new Intl.DateTimeFormat("en-GB", {
+  day: "2-digit",
+  month: "short",
+  year: "numeric",
+  timeZone: "UTC",
+});
 
 export const STALE_AFTER_DAYS = 14;
 
@@ -23,6 +29,10 @@ export function formatRelativeDays(days) {
   if (days === 0) return "today";
   if (days === 1) return "1d ago";
   return `${days}d ago`;
+}
+
+export function formatTicketDate(date) {
+  return ticketDateFormatter.format(new Date(`${date}T00:00:00Z`));
 }
 
 export function getAgeSeamPercentage(ageDays) {

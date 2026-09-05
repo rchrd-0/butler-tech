@@ -29,3 +29,11 @@ export function TicketPriorityIndicator({ priority, muted = false }) {
     />
   );
 }
+
+export function TicketStaleBadge() {
+  return (
+    <span className="shrink-0 border border-foreground px-1 py-px font-bold font-sans text-[9.5px] uppercase leading-[1.2] tracking-[0.1em]">
+      Stale
+    </span>
+  );
+}
