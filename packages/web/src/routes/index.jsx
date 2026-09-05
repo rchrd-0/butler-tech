@@ -1,9 +1,11 @@
 import { createFileRoute, useRouter } from "@tanstack/react-router";
+import { useMemo } from "react";
 import { TicketFilters } from "#/components/tickets/ticket-filters";
 import { TicketTable } from "#/components/tickets/ticket-table";
 import { Alert, AlertDescription, AlertTitle } from "#/components/ui/alert";
 import { Button } from "#/components/ui/button";
 import { Empty, EmptyDescription, EmptyHeader, EmptyTitle } from "#/components/ui/empty";
+import { deriveTicketsFreshness } from "#/lib/ticket-freshness";
 
 const ticketFilterValues = {
   status: ["Open", "In Progress", "Closed"],
@@ -52,7 +54,8 @@ export const Route = createFileRoute("/")({
 });
 
 function TicketsPage() {
-  const tickets = Route.useLoaderData();
+  const loadedTickets = Route.useLoaderData();
+  const tickets = useMemo(() => deriveTicketsFreshness(loadedTickets), [loadedTickets]);
   const filters = Route.useSearch();
   const navigate = Route.useNavigate();
 

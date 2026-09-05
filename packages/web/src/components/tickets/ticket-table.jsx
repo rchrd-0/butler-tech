@@ -11,6 +11,7 @@ import {
 import { cn } from "cn";
 import { useMemo } from "react";
 import { Empty, EmptyHeader, EmptyTitle } from "#/components/ui/empty";
+import { formatRelativeDays, getAgeSeamPercentage } from "#/lib/ticket-freshness";
 
 const features = tableFeatures({
   columnFilteringFeature,
@@ -22,13 +23,6 @@ const features = tableFeatures({
   },
 });
 const columnHelper = createColumnHelper();
-
-const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-
-function formatLedgerDate(isoDate) {
-  const [year, month, day] = isoDate.split("-").map(Number);
-  return `${String(day).padStart(2, "0")} ${MONTHS[month - 1]} ${year}`;
-}
 
 const priorityMarks = {
   High: "bg-priority-high",
@@ -85,6 +79,51 @@ function PriorityCell({ priority, closed }) {
   );
 }
 
+function AgeCell({ ageDays, closed }) {
+  const seamPercentage = getAgeSeamPercentage(ageDays);
+
+  return (
+    <span className="flex items-center gap-2">
+      <span
+        className={cn(
+          "w-[34px] shrink-0 text-right font-medium font-mono text-[12.5px]",
+          closed ? "text-muted-foreground" : "text-foreground",
+        )}
+      >
+        {ageDays}d
+      </span>
+      <span aria-hidden="true" className="relative flex h-[9px] min-w-0 flex-1 items-end">
+        <span className="absolute right-0 bottom-0 left-0 h-px bg-border" />
+        <span
+          className={cn("relative h-[3px]", closed ? "bg-border" : "bg-foreground")}
+          style={{ width: `${seamPercentage}%` }}
+        />
+      </span>
+    </span>
+  );
+}
+
+function ActivityCell({ activityDays, stale, updated }) {
+  return (
+    <span className="flex items-center gap-1.5">
+      <time
+        className={cn(
+          "whitespace-nowrap font-mono text-[12.5px]",
+          stale ? "text-foreground" : "text-muted-foreground",
+        )}
+        dateTime={updated}
+      >
+        {formatRelativeDays(activityDays)}
+      </time>
+      {stale ? (
+        <span className="shrink-0 border border-foreground px-1 py-px font-bold font-sans text-[9.5px] uppercase leading-[1.2] tracking-[0.1em]">
+          Stale
+        </span>
+      ) : null}
+    </span>
+  );
+}
+
 const columns = columnHelper.columns([
   columnHelper.accessor("id", {
     header: "ID",
@@ -93,6 +132,12 @@ const columns = columnHelper.columns([
         {getValue()}
       </span>
     ),
+  }),
+  columnHelper.accessor(({ freshness }) => freshness.ageDays, {
+    id: "age",
+    header: "Age",
+    enableGlobalFilter: false,
+    cell: ({ getValue, row }) => <AgeCell ageDays={getValue()} closed={isClosed(row.original)} />,
   }),
   columnHelper.accessor("title", {
     header: "Description",
@@ -113,14 +158,6 @@ const columns = columnHelper.columns([
     enableGlobalFilter: false,
     cell: ({ getValue }) => <StatusCell status={getValue()} />,
   }),
-  columnHelper.accessor("category", {
-    header: "Category",
-    filterFn: "equalsString",
-    enableGlobalFilter: false,
-    cell: ({ getValue }) => (
-      <span className="text-[13.5px] text-muted-foreground">{getValue()}</span>
-    ),
-  }),
   columnHelper.accessor("priority", {
     header: "Priority",
     filterFn: "equalsString",
@@ -129,28 +166,18 @@ const columns = columnHelper.columns([
       <PriorityCell closed={isClosed(row.original)} priority={getValue()} />
     ),
   }),
-  columnHelper.accessor("location", {
-    header: "Location",
+  columnHelper.accessor("category", {
+    header: "Category",
+    filterFn: "equalsString",
+    enableGlobalFilter: false,
     cell: ({ getValue }) => (
       <span className="text-[13.5px] text-muted-foreground">{getValue()}</span>
     ),
   }),
-  columnHelper.accessor("created", {
-    header: "Created",
-    enableGlobalFilter: false,
+  columnHelper.accessor("location", {
+    header: "Location",
     cell: ({ getValue }) => (
-      <span className="font-mono text-[12.5px] text-muted-foreground">
-        {formatLedgerDate(getValue())}
-      </span>
-    ),
-  }),
-  columnHelper.accessor("updated", {
-    header: "Last activity",
-    enableGlobalFilter: false,
-    cell: ({ getValue }) => (
-      <span className="font-mono text-[12.5px] text-muted-foreground">
-        {formatLedgerDate(getValue())}
-      </span>
+      <span className="text-[13.5px] text-muted-foreground">{getValue()}</span>
     ),
   }),
   columnHelper.accessor(({ assignee }) => assignee ?? "Unassigned", {
@@ -168,17 +195,29 @@ const columns = columnHelper.columns([
       </span>
     ),
   }),
+  columnHelper.accessor(({ freshness }) => freshness.activityDays, {
+    id: "activity",
+    header: "Last activity",
+    enableGlobalFilter: false,
+    cell: ({ getValue, row }) => (
+      <ActivityCell
+        activityDays={getValue()}
+        stale={row.original.freshness.stale}
+        updated={row.original.updated}
+      />
+    ),
+  }),
 ]);
 
 const columnWidths = {
   id: "w-[72px]",
+  age: "w-[104px]",
   status: "w-[118px]",
-  category: "w-[110px]",
-  priority: "w-[100px]",
-  location: "w-[132px]",
-  created: "w-[116px]",
-  updated: "w-[116px]",
-  assignee: "w-[128px]",
+  priority: "w-[96px]",
+  category: "w-[104px]",
+  location: "w-[130px]",
+  assignee: "w-[122px]",
+  activity: "w-[136px]",
 };
 
 export function TicketTable({ tickets, filters }) {
@@ -210,7 +249,7 @@ export function TicketTable({ tickets, filters }) {
     <div className="flex min-h-0 flex-1 flex-col px-[18px] pt-[14px] pb-[18px]">
       <div className="mx-auto flex min-h-0 w-full max-w-shell flex-1 flex-col border border-border bg-card">
         <div className="min-h-0 flex-1 overflow-auto">
-          <table className="w-full min-w-[1112px] table-fixed border-collapse">
+          <table className="w-full min-w-[1102px] table-fixed border-collapse">
             <caption className="sr-only">Maintenance ticket ledger</caption>
             <colgroup>
               {table.getAllColumns().map((column) => (
