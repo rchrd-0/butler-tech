@@ -1,6 +1,32 @@
 import { createFileRoute, useRouter } from "@tanstack/react-router";
+import { TicketFilters } from "#/components/tickets/ticket-filters";
 import { TicketTable } from "#/components/tickets/ticket-table";
 import { Button } from "#/components/ui/button";
+
+const ticketFilterValues = {
+  status: ["Open", "In Progress", "Closed"],
+  category: ["HVAC", "Electrical", "Security", "Plumbing", "Lift", "Civil", "Safety"],
+  priority: ["High", "Medium", "Low"],
+};
+
+const ticketFilterOptions = Object.fromEntries(
+  Object.entries(ticketFilterValues).map(([name, values]) => [
+    name,
+    [{ label: `All ${name}`, value: null }, ...values.map((value) => ({ label: value, value }))],
+  ]),
+);
+
+function validateTicketSearch(search) {
+  const validatedSearch = {
+    q: typeof search.q === "string" && search.q ? search.q : undefined,
+  };
+
+  for (const [name, values] of Object.entries(ticketFilterValues)) {
+    validatedSearch[name] = values.includes(search[name]) ? search[name] : undefined;
+  }
+
+  return validatedSearch;
+}
 
 async function loadTickets({ abortController }) {
   const response = await fetch("/api/tickets", {
@@ -15,7 +41,9 @@ async function loadTickets({ abortController }) {
 }
 
 export const Route = createFileRoute("/")({
+  validateSearch: validateTicketSearch,
   loader: loadTickets,
+  staleTime: Number.POSITIVE_INFINITY,
   pendingComponent: TicketsPending,
   errorComponent: TicketsError,
   component: TicketsPage,
@@ -23,12 +51,36 @@ export const Route = createFileRoute("/")({
 
 function TicketsPage() {
   const tickets = Route.useLoaderData();
+  const filters = Route.useSearch();
+  const navigate = Route.useNavigate();
+
+  const updateFilter = (name, value) => {
+    navigate({
+      replace: true,
+      search: (previous) => ({ ...previous, [name]: value }),
+    });
+  };
+
+  const clearFilters = () => {
+    navigate({ replace: true, search: {} });
+  };
 
   return (
     <main>
       <h1>Maintenance tickets</h1>
-      <p>{tickets.length} tickets</p>
-      <TicketTable tickets={tickets} />
+      {tickets.length === 0 ? (
+        <p>No maintenance tickets are available.</p>
+      ) : (
+        <>
+          <TicketFilters
+            filters={filters}
+            options={ticketFilterOptions}
+            onChange={updateFilter}
+            onClear={clearFilters}
+          />
+          <TicketTable tickets={tickets} filters={filters} />
+        </>
+      )}
     </main>
   );
 }
