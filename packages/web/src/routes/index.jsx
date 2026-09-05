@@ -2,6 +2,7 @@ import { createFileRoute, useRouter } from "@tanstack/react-router";
 import { useMemo } from "react";
 import { TicketFilters } from "#/components/tickets/ticket-filters";
 import { TicketTable } from "#/components/tickets/ticket-table";
+import { TicketWidgets } from "#/components/tickets/ticket-widgets";
 import { Alert, AlertDescription, AlertTitle } from "#/components/ui/alert";
 import { Button } from "#/components/ui/button";
 import { Empty, EmptyDescription, EmptyHeader, EmptyTitle } from "#/components/ui/empty";
@@ -87,6 +88,7 @@ function TicketsPage() {
             onChange={updateFilter}
             onClear={clearFilters}
           />
+          <TicketWidgets tickets={tickets} />
           <TicketTable tickets={tickets} filters={filters} />
         </>
       )}

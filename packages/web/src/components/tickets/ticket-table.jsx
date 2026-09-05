@@ -10,6 +10,10 @@ import {
 } from "@tanstack/react-table";
 import { cn } from "cn";
 import { useMemo } from "react";
+import {
+  TicketPriorityIndicator,
+  TicketStatusIndicator,
+} from "#/components/tickets/ticket-indicators";
 import { Empty, EmptyHeader, EmptyTitle } from "#/components/ui/empty";
 import { formatRelativeDays, getAgeSeamPercentage } from "#/lib/ticket-freshness";
 
@@ -24,27 +28,12 @@ const features = tableFeatures({
 });
 const columnHelper = createColumnHelper();
 
-const priorityMarks = {
-  High: "bg-priority-high",
-  Medium: "bg-priority-medium",
-  Low: "bg-priority-low",
-};
-
 const isClosed = (ticket) => ticket.status === "Closed";
 
 function StatusCell({ status }) {
   return (
     <span className="flex items-center gap-[7px]">
-      <span
-        aria-hidden="true"
-        className={cn(
-          "size-2 shrink-0",
-          status === "Open" && "bg-foreground",
-          status === "In Progress" &&
-            "border border-foreground bg-[linear-gradient(90deg,var(--foreground)_50%,transparent_50%)]",
-          status === "Closed" && "border border-foreground-faint",
-        )}
-      />
+      <TicketStatusIndicator status={status} />
       <span
         className={cn(
           "whitespace-nowrap text-[13px]",
@@ -62,10 +51,7 @@ function StatusCell({ status }) {
 function PriorityCell({ priority, closed }) {
   return (
     <span className="flex items-center gap-2">
-      <span
-        aria-hidden="true"
-        className={cn("h-3.5 w-[3px] shrink-0", closed ? "bg-border" : priorityMarks[priority])}
-      />
+      <TicketPriorityIndicator muted={closed} priority={priority} />
       <span
         className={cn(
           "text-[13px]",
