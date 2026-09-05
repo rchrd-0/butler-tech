@@ -1,5 +1,6 @@
 import cors from "cors";
 import express from "express";
+import * as v from "valibot";
 import { evlog } from "#/lib/logger.js";
 import ticketRouter from "#/modules/tickets/router.js";
 
@@ -37,6 +38,15 @@ app.use((_req, res) => {
 app.use((error, req, res, next) => {
   if (res.headersSent) {
     return next(error);
+  }
+
+  if (error instanceof v.ValiError) {
+    const { nested, root } = v.flatten(error.issues);
+
+    return res.status(400).json({
+      message: "Invalid request",
+      errors: nested ?? { request: root },
+    });
   }
 
   req.log.error(error);

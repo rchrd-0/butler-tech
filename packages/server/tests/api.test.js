@@ -59,7 +59,7 @@ test("rejects malformed filters and ticket IDs", async () => {
 
     assert.equal(response.status, 400);
     assert.equal(body.message, "Invalid request");
-    assert.ok(body.issues[field]?.length > 0);
+    assert.ok(body.errors[field]?.length > 0);
   }
 });
 
