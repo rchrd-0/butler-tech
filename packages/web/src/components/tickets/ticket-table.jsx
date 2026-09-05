@@ -9,7 +9,7 @@ import {
   useTable,
 } from "@tanstack/react-table";
 import { cn } from "cn";
-import { useMemo } from "react";
+import { memo, useMemo } from "react";
 import {
   TicketPriorityIndicator,
   TicketStaleBadge,
@@ -205,7 +205,7 @@ const columnWidths = {
   activity: "w-[136px]",
 };
 
-export function TicketTable({ tickets, filters, onInspect }) {
+export const TicketTable = memo(function TicketTable({ tickets, filters, onInspect }) {
   const { category, priority, status } = filters;
   const columnFilters = useMemo(
     () => [
@@ -297,4 +297,4 @@ export function TicketTable({ tickets, filters, onInspect }) {
       </div>
     </div>
   );
-}
+});
