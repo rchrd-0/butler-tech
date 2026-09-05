@@ -56,12 +56,12 @@ export function TicketFilters({ filters, options, onChange, onClear }) {
   return (
     <section
       aria-labelledby="ticket-filters-heading"
-      className="shrink-0 border-border border-b bg-card"
+      className="shrink-0 border-border border-b bg-card px-[18px]"
     >
       <h2 className="sr-only" id="ticket-filters-heading">
         Filters
       </h2>
-      <div className="mx-auto flex w-full max-w-shell flex-wrap items-center gap-x-[22px] gap-y-2.5 px-[18px] py-[11px]">
+      <div className="mx-auto flex w-full max-w-shell flex-wrap items-center gap-x-[22px] gap-y-2.5 py-[11px]">
         <FilterSelect
           id="status-filter"
           label="Status"
