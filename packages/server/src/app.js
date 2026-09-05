@@ -1,6 +1,7 @@
 import cors from "cors";
 import express from "express";
 import { evlog } from "#/lib/logger.js";
+import ticketRouter from "#/modules/tickets/router.js";
 
 const corsOrigin = process.env.CORS_ORIGIN?.trim();
 
@@ -24,6 +25,8 @@ app.get("/health", (req, res) => {
     uptime: process.uptime(),
   });
 });
+
+app.use("/api/tickets", ticketRouter);
 
 app.use((_req, res) => {
   res.status(404).json({
