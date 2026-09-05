@@ -1,0 +1,2028 @@
+[
+  {
+    "id": 1,
+    "title": "Aircon leaking on 15/F",
+    "status": "Open",
+    "category": "HVAC",
+    "priority": "High",
+    "created": "2026-06-01",
+    "location": "15/F",
+    "updated": "2026-09-02",
+    "assignee": "Wong T.F.",
+    "events": [
+      {
+        "at": "2026-06-01",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-06-02",
+        "actor": "Duty Manager",
+        "note": "Assigned to Wong T.F."
+      },
+      {
+        "at": "2026-09-02",
+        "actor": "Wong T.F.",
+        "note": "Drain line cleared; monitoring for further leakage."
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Lobby light flickering",
+    "status": "In Progress",
+    "category": "Electrical",
+    "priority": "Medium",
+    "created": "2026-06-03",
+    "location": "Lobby",
+    "updated": "2026-09-03",
+    "assignee": "Lee S.Y.",
+    "events": [
+      {
+        "at": "2026-06-03",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-06-03",
+        "actor": "Duty Manager",
+        "note": "Assigned to Lee S.Y."
+      },
+      {
+        "at": "2026-09-03",
+        "actor": "Lee S.Y.",
+        "note": "Fitting checked; intermittent fault still under investigation."
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Car park gate broken",
+    "status": "Closed",
+    "category": "Security",
+    "priority": "High",
+    "created": "2026-05-28",
+    "location": "Car Park Gate",
+    "updated": "2026-06-02",
+    "assignee": "Chan M.K.",
+    "events": [
+      {
+        "at": "2026-05-28",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-05-28",
+        "actor": "Duty Manager",
+        "note": "Assigned to Chan M.K."
+      },
+      {
+        "at": "2026-06-02",
+        "actor": "Chan M.K.",
+        "note": "Gate mechanism reset and tested; ticket closed."
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Water pump noise",
+    "status": "Open",
+    "category": "Plumbing",
+    "priority": "Low",
+    "created": "2026-06-10",
+    "location": "Pump Room",
+    "updated": "2026-08-17",
+    "assignee": "Ho K.W.",
+    "events": [
+      {
+        "at": "2026-06-10",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-06-12",
+        "actor": "Duty Manager",
+        "note": "Assigned to Ho K.W."
+      },
+      {
+        "at": "2026-08-17",
+        "actor": "Ho K.W.",
+        "note": "Pump checked; noise persists intermittently."
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Lift button unresponsive",
+    "status": "In Progress",
+    "category": "Lift",
+    "priority": "High",
+    "created": "2026-06-12",
+    "location": "Lift 1",
+    "updated": "2026-09-01",
+    "assignee": "Ng P.Y.",
+    "events": [
+      {
+        "at": "2026-06-12",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-06-12",
+        "actor": "Duty Manager",
+        "note": "Assigned to Ng P.Y."
+      },
+      {
+        "at": "2026-09-01",
+        "actor": "Ng P.Y.",
+        "note": "Button panel inspected; repair remains in progress."
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Rooftop drain blocked",
+    "status": "Open",
+    "category": "Civil",
+    "priority": "Medium",
+    "created": "2026-06-15",
+    "location": "Rooftop",
+    "updated": "2026-08-18",
+    "assignee": "Lam C.H.",
+    "events": [
+      {
+        "at": "2026-06-15",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-06-16",
+        "actor": "Duty Manager",
+        "note": "Assigned to Lam C.H."
+      },
+      {
+        "at": "2026-08-18",
+        "actor": "Lam C.H.",
+        "note": "Drain inspected; further clearing required."
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Fire alarm false trigger",
+    "status": "Closed",
+    "category": "Safety",
+    "priority": "High",
+    "created": "2026-05-20",
+    "location": "G/F Lobby",
+    "updated": "2026-05-22",
+    "assignee": "Cheung Y.L.",
+    "events": [
+      {
+        "at": "2026-05-20",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-05-20",
+        "actor": "Duty Manager",
+        "note": "Assigned to Cheung Y.L."
+      },
+      {
+        "at": "2026-05-22",
+        "actor": "Cheung Y.L.",
+        "note": "Detector checked and alarm panel reset; ticket closed."
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Office AC not cooling",
+    "status": "Open",
+    "category": "HVAC",
+    "priority": "Medium",
+    "created": "2026-06-18",
+    "location": "12/F Office",
+    "updated": "2026-09-03",
+    "assignee": null,
+    "events": [
+      {
+        "at": "2026-06-18",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-09-03",
+        "actor": "Duty Manager",
+        "note": "Issue reviewed; awaiting assignment."
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Intercom audio lost at G/F lobby",
+    "status": "In Progress",
+    "category": "Security",
+    "priority": "Low",
+    "created": "2026-06-30",
+    "location": "G/F Lobby",
+    "updated": "2026-08-24",
+    "assignee": "Chan M.K.",
+    "events": [
+      {
+        "at": "2026-06-30",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-07-09",
+        "actor": "Duty Manager",
+        "note": "Assigned to Chan M.K."
+      },
+      {
+        "at": "2026-08-24",
+        "actor": "Chan M.K.",
+        "note": "Audio fault traced to the lobby handset; replacement is pending."
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "title": "10/F Corridor floor tile loose",
+    "status": "In Progress",
+    "category": "Civil",
+    "priority": "Low",
+    "created": "2026-06-05",
+    "location": "10/F Corridor",
+    "updated": "2026-08-09",
+    "assignee": "Lam C.H.",
+    "events": [
+      {
+        "at": "2026-06-05",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-06-05",
+        "actor": "Duty Manager",
+        "note": "Assigned to Lam C.H."
+      },
+      {
+        "at": "2026-07-17",
+        "actor": "Lam C.H.",
+        "note": "Follow-up attendance recorded."
+      },
+      {
+        "at": "2026-08-09",
+        "actor": "Lam C.H.",
+        "note": "Initial adjustment completed; monitoring before closure."
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "title": "Exhaust fan vibration increasing on rooftop",
+    "status": "Open",
+    "category": "HVAC",
+    "priority": "High",
+    "created": "2026-08-13",
+    "location": "Rooftop",
+    "updated": "2026-08-26",
+    "assignee": "Wong T.F.",
+    "events": [
+      {
+        "at": "2026-08-13",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-08-16",
+        "actor": "Duty Manager",
+        "note": "Assigned to Wong T.F."
+      },
+      {
+        "at": "2026-08-26",
+        "actor": "Wong T.F.",
+        "note": "Vibration confirmed at high speed; bearing inspection booked."
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "title": "Lift motor room running warm",
+    "status": "Open",
+    "category": "HVAC",
+    "priority": "Medium",
+    "created": "2026-07-27",
+    "location": "Lift Motor Room",
+    "updated": "2026-08-24",
+    "assignee": "Ho K.W.",
+    "events": [
+      {
+        "at": "2026-07-27",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-07-29",
+        "actor": "Duty Manager",
+        "note": "Assigned to Ho K.W."
+      },
+      {
+        "at": "2026-08-24",
+        "actor": "Ho K.W.",
+        "note": "Room temperature measured at 31°C; extract fan inspection required."
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "title": "7/F Corridor door release fault",
+    "status": "Open",
+    "category": "Safety",
+    "priority": "Medium",
+    "created": "2026-08-19",
+    "location": "7/F Corridor",
+    "updated": "2026-08-29",
+    "assignee": null,
+    "events": [
+      {
+        "at": "2026-08-19",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-08-29",
+        "actor": "Duty Manager",
+        "note": "Issue confirmed and retained in the open queue."
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "title": "Distorted audio from service entrance intercom",
+    "status": "Open",
+    "category": "Security",
+    "priority": "Medium",
+    "created": "2026-09-01",
+    "location": "Service Entrance",
+    "updated": "2026-09-01",
+    "assignee": null,
+    "events": [
+      {
+        "at": "2026-09-01",
+        "actor": "System",
+        "note": "Ticket logged."
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "title": "12/F Pantry toilet cistern running",
+    "status": "Open",
+    "category": "Plumbing",
+    "priority": "Medium",
+    "created": "2026-07-21",
+    "location": "12/F Pantry",
+    "updated": "2026-08-27",
+    "assignee": "Ng P.Y.",
+    "events": [
+      {
+        "at": "2026-07-21",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-07-23",
+        "actor": "Duty Manager",
+        "note": "Assigned to Ng P.Y."
+      },
+      {
+        "at": "2026-08-27",
+        "actor": "Ng P.Y.",
+        "note": "Issue confirmed and retained in the open queue."
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "title": "Lift 1 floor indicator blank",
+    "status": "Open",
+    "category": "Lift",
+    "priority": "Medium",
+    "created": "2026-06-27",
+    "location": "Lift 1",
+    "updated": "2026-09-03",
+    "assignee": "Cheung Y.L.",
+    "events": [
+      {
+        "at": "2026-06-27",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-06-27",
+        "actor": "Duty Manager",
+        "note": "Assigned to Cheung Y.L."
+      },
+      {
+        "at": "2026-09-03",
+        "actor": "Cheung Y.L.",
+        "note": "Access checked; maintenance attendance still required."
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "title": "Canopy light flickering at main entrance",
+    "status": "In Progress",
+    "category": "Electrical",
+    "priority": "Low",
+    "created": "2026-08-16",
+    "location": "Main Entrance",
+    "updated": "2026-08-21",
+    "assignee": "Chan M.K.",
+    "events": [
+      {
+        "at": "2026-08-16",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-08-18",
+        "actor": "Duty Manager",
+        "note": "Assigned to Chan M.K."
+      },
+      {
+        "at": "2026-08-21",
+        "actor": "Chan M.K.",
+        "note": "Loose neutral found in the canopy circuit; isolation arranged."
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "title": "Management Office door reader unresponsive",
+    "status": "Closed",
+    "category": "Security",
+    "priority": "High",
+    "created": "2026-07-09",
+    "location": "Management Office",
+    "updated": "2026-07-25",
+    "assignee": "Ng P.Y.",
+    "events": [
+      {
+        "at": "2026-07-09",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-07-09",
+        "actor": "Duty Manager",
+        "note": "Assigned to Ng P.Y."
+      },
+      {
+        "at": "2026-07-17",
+        "actor": "Ng P.Y.",
+        "note": "Follow-up attendance recorded."
+      },
+      {
+        "at": "2026-07-25",
+        "actor": "Ng P.Y.",
+        "note": "Repair completed and operation verified; ticket closed."
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "title": "Rooftop corridor lights not switching on",
+    "status": "In Progress",
+    "category": "Electrical",
+    "priority": "High",
+    "created": "2026-07-11",
+    "location": "Rooftop",
+    "updated": "2026-09-03",
+    "assignee": "Lee S.Y.",
+    "events": [
+      {
+        "at": "2026-07-11",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-08-07",
+        "actor": "Duty Manager",
+        "note": "Assigned to Lee S.Y."
+      },
+      {
+        "at": "2026-09-03",
+        "actor": "Lee S.Y.",
+        "note": "Contactor is energising intermittently; replacement is in progress."
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "title": "Leaking tap in 12/F pantry",
+    "status": "In Progress",
+    "category": "Plumbing",
+    "priority": "Low",
+    "created": "2026-07-04",
+    "location": "12/F Pantry",
+    "updated": "2026-09-03",
+    "assignee": "Wong T.F.",
+    "events": [
+      {
+        "at": "2026-07-04",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-07-04",
+        "actor": "Duty Manager",
+        "note": "Assigned to Wong T.F."
+      },
+      {
+        "at": "2026-07-17",
+        "actor": "Wong T.F.",
+        "note": "Site access confirmed for inspection."
+      },
+      {
+        "at": "2026-09-03",
+        "actor": "Wong T.F.",
+        "note": "Tap cartridge removed; a matching replacement is being sourced."
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "title": "10/F Corridor door closer misaligned",
+    "status": "In Progress",
+    "category": "Civil",
+    "priority": "High",
+    "created": "2026-08-29",
+    "location": "10/F Corridor",
+    "updated": "2026-09-03",
+    "assignee": "Cheung Y.L.",
+    "events": [
+      {
+        "at": "2026-08-29",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-08-30",
+        "actor": "Duty Manager",
+        "note": "Assigned to Cheung Y.L."
+      },
+      {
+        "at": "2026-09-03",
+        "actor": "Cheung Y.L.",
+        "note": "Technician attended; follow-up work is continuing."
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "title": "4/F Corridor emergency light fault",
+    "status": "In Progress",
+    "category": "Electrical",
+    "priority": "High",
+    "created": "2026-07-24",
+    "location": "4/F Corridor",
+    "updated": "2026-08-16",
+    "assignee": "Lam C.H.",
+    "events": [
+      {
+        "at": "2026-07-24",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-07-25",
+        "actor": "Duty Manager",
+        "note": "Assigned to Lam C.H."
+      },
+      {
+        "at": "2026-08-16",
+        "actor": "Lam C.H.",
+        "note": "Fault confirmed; corrective work is in progress."
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "title": "Loose floor tile near the B2 ramp",
+    "status": "In Progress",
+    "category": "Civil",
+    "priority": "Low",
+    "created": "2026-05-28",
+    "location": "Car Park B2",
+    "updated": "2026-07-25",
+    "assignee": "Ng P.Y.",
+    "events": [
+      {
+        "at": "2026-05-28",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-05-29",
+        "actor": "Duty Manager",
+        "note": "Assigned to Ng P.Y."
+      },
+      {
+        "at": "2026-07-19",
+        "actor": "Ng P.Y.",
+        "note": "Tile lifted for inspection; bedding underneath has broken away."
+      },
+      {
+        "at": "2026-07-25",
+        "actor": "Ng P.Y.",
+        "note": "Area cordoned off while the replacement tile is prepared."
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "title": "G/F Toilet drain backing up",
+    "status": "Closed",
+    "category": "Plumbing",
+    "priority": "Low",
+    "created": "2026-07-28",
+    "location": "G/F Toilet",
+    "updated": "2026-08-03",
+    "assignee": "Ho K.W.",
+    "events": [
+      {
+        "at": "2026-07-28",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-07-29",
+        "actor": "Duty Manager",
+        "note": "Assigned to Ho K.W."
+      },
+      {
+        "at": "2026-08-03",
+        "actor": "Ho K.W.",
+        "note": "Issue rectified and tested; ticket closed."
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "title": "Service Entrance door contact alarm intermittent",
+    "status": "Open",
+    "category": "Security",
+    "priority": "High",
+    "created": "2026-08-04",
+    "location": "Service Entrance",
+    "updated": "2026-08-30",
+    "assignee": "Wong T.F.",
+    "events": [
+      {
+        "at": "2026-08-04",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-08-06",
+        "actor": "Duty Manager",
+        "note": "Assigned to Wong T.F."
+      },
+      {
+        "at": "2026-08-30",
+        "actor": "Wong T.F.",
+        "note": "Access checked; maintenance attendance still required."
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "title": "5/F Washroom pipe joint leaking",
+    "status": "In Progress",
+    "category": "Plumbing",
+    "priority": "Low",
+    "created": "2026-07-08",
+    "location": "5/F Washroom",
+    "updated": "2026-08-26",
+    "assignee": "Wong T.F.",
+    "events": [
+      {
+        "at": "2026-07-08",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-07-09",
+        "actor": "Duty Manager",
+        "note": "Assigned to Wong T.F."
+      },
+      {
+        "at": "2026-08-26",
+        "actor": "Wong T.F.",
+        "note": "Technician attended; follow-up work is continuing."
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "title": "20/F Lift Lobby call button sticking",
+    "status": "In Progress",
+    "category": "Lift",
+    "priority": "High",
+    "created": "2026-08-07",
+    "location": "20/F Lift Lobby",
+    "updated": "2026-08-26",
+    "assignee": "Wong T.F.",
+    "events": [
+      {
+        "at": "2026-08-07",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-08-07",
+        "actor": "Duty Manager",
+        "note": "Assigned to Wong T.F."
+      },
+      {
+        "at": "2026-08-13",
+        "actor": "Wong T.F.",
+        "note": "Site access confirmed for inspection."
+      },
+      {
+        "at": "2026-08-26",
+        "actor": "Wong T.F.",
+        "note": "Technician attended; follow-up work is continuing."
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "title": "Fan coil rattling in 18/F office",
+    "status": "Open",
+    "category": "HVAC",
+    "priority": "High",
+    "created": "2026-08-23",
+    "location": "18/F Office",
+    "updated": "2026-09-03",
+    "assignee": null,
+    "events": [
+      {
+        "at": "2026-08-23",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-09-03",
+        "actor": "Duty Manager",
+        "note": "Rattle reproduced on fan speed 3; grille fixings require attention."
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "title": "14/F Corridor emergency signage loose",
+    "status": "Closed",
+    "category": "Safety",
+    "priority": "High",
+    "created": "2026-06-22",
+    "location": "14/F Corridor",
+    "updated": "2026-07-15",
+    "assignee": "Lam C.H.",
+    "events": [
+      {
+        "at": "2026-06-22",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-06-24",
+        "actor": "Duty Manager",
+        "note": "Assigned to Lam C.H."
+      },
+      {
+        "at": "2026-07-15",
+        "actor": "Lam C.H.",
+        "note": "Issue rectified and tested; ticket closed."
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "title": "Service Entrance barrier arm stuck",
+    "status": "In Progress",
+    "category": "Security",
+    "priority": "High",
+    "created": "2026-07-08",
+    "location": "Service Entrance",
+    "updated": "2026-08-29",
+    "assignee": "Chan M.K.",
+    "events": [
+      {
+        "at": "2026-07-08",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-07-09",
+        "actor": "Duty Manager",
+        "note": "Assigned to Chan M.K."
+      },
+      {
+        "at": "2026-08-29",
+        "actor": "Chan M.K.",
+        "note": "Initial adjustment completed; monitoring before closure."
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "title": "Lift 3 arrival chime not sounding",
+    "status": "Closed",
+    "category": "Lift",
+    "priority": "Medium",
+    "created": "2026-07-12",
+    "location": "Lift 3",
+    "updated": "2026-07-17",
+    "assignee": "Cheung Y.L.",
+    "events": [
+      {
+        "at": "2026-07-12",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-07-13",
+        "actor": "Duty Manager",
+        "note": "Assigned to Cheung Y.L."
+      },
+      {
+        "at": "2026-07-17",
+        "actor": "Cheung Y.L.",
+        "note": "Repair completed and operation verified; ticket closed."
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "title": "Rattling fan coil above 6/F workstation",
+    "status": "Open",
+    "category": "HVAC",
+    "priority": "Medium",
+    "created": "2026-07-05",
+    "location": "6/F Office",
+    "updated": "2026-07-05",
+    "assignee": "Lee S.Y.",
+    "events": [
+      {
+        "at": "2026-07-05",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-07-05",
+        "actor": "Duty Manager",
+        "note": "Assigned to Lee S.Y."
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "title": "G/F Lobby smoke detector fault",
+    "status": "Open",
+    "category": "Safety",
+    "priority": "Medium",
+    "created": "2026-07-28",
+    "location": "G/F Lobby",
+    "updated": "2026-08-18",
+    "assignee": "Lam C.H.",
+    "events": [
+      {
+        "at": "2026-07-28",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-07-29",
+        "actor": "Duty Manager",
+        "note": "Assigned to Lam C.H."
+      },
+      {
+        "at": "2026-08-18",
+        "actor": "Lam C.H.",
+        "note": "Issue confirmed and retained in the open queue."
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "title": "11/F Pantry socket faceplate loose",
+    "status": "Open",
+    "category": "Electrical",
+    "priority": "Medium",
+    "created": "2026-08-25",
+    "location": "11/F Pantry",
+    "updated": "2026-08-25",
+    "assignee": "Ng P.Y.",
+    "events": [
+      {
+        "at": "2026-08-25",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-08-25",
+        "actor": "Duty Manager",
+        "note": "Assigned to Ng P.Y."
+      }
+    ]
+  },
+  {
+    "id": 35,
+    "title": "Loose floor tile at podium entrance",
+    "status": "Open",
+    "category": "Civil",
+    "priority": "High",
+    "created": "2026-08-09",
+    "location": "Podium",
+    "updated": "2026-08-10",
+    "assignee": null,
+    "events": [
+      {
+        "at": "2026-08-09",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-08-10",
+        "actor": "Duty Manager",
+        "note": "Two tiles are rocking near the entrance; area marked for repair."
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "title": "Reception aircon leaking",
+    "status": "Closed",
+    "category": "HVAC",
+    "priority": "Medium",
+    "created": "2026-05-28",
+    "location": "Reception",
+    "updated": "2026-06-08",
+    "assignee": "Lam C.H.",
+    "events": [
+      {
+        "at": "2026-05-28",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-05-29",
+        "actor": "Duty Manager",
+        "note": "Assigned to Lam C.H."
+      },
+      {
+        "at": "2026-06-08",
+        "actor": "Lam C.H.",
+        "note": "Issue rectified and tested; ticket closed."
+      }
+    ]
+  },
+  {
+    "id": 37,
+    "title": "Car Park B2 lighting circuit intermittent",
+    "status": "In Progress",
+    "category": "Electrical",
+    "priority": "High",
+    "created": "2026-08-01",
+    "location": "Car Park B2",
+    "updated": "2026-08-07",
+    "assignee": "Lee S.Y.",
+    "events": [
+      {
+        "at": "2026-08-01",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-08-01",
+        "actor": "Duty Manager",
+        "note": "Assigned to Lee S.Y."
+      },
+      {
+        "at": "2026-08-07",
+        "actor": "Lee S.Y.",
+        "note": "Technician attended; follow-up work is continuing."
+      }
+    ]
+  },
+  {
+    "id": 38,
+    "title": "Aircon not cooling lobby seating area",
+    "status": "Open",
+    "category": "HVAC",
+    "priority": "Medium",
+    "created": "2026-06-26",
+    "location": "Lobby",
+    "updated": "2026-08-28",
+    "assignee": "Ho K.W.",
+    "events": [
+      {
+        "at": "2026-06-26",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-06-28",
+        "actor": "Duty Manager",
+        "note": "Assigned to Ho K.W."
+      },
+      {
+        "at": "2026-08-28",
+        "actor": "Ho K.W.",
+        "note": "Supply air measured warm; chilled-water valve requires follow-up."
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "title": "B1 Plant Room tap leaking",
+    "status": "In Progress",
+    "category": "Plumbing",
+    "priority": "Medium",
+    "created": "2026-08-30",
+    "location": "B1 Plant Room",
+    "updated": "2026-09-03",
+    "assignee": "Ho K.W.",
+    "events": [
+      {
+        "at": "2026-08-30",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-09-01",
+        "actor": "Duty Manager",
+        "note": "Assigned to Ho K.W."
+      },
+      {
+        "at": "2026-09-03",
+        "actor": "Ho K.W.",
+        "note": "Inspection completed; repair remains in progress."
+      }
+    ]
+  },
+  {
+    "id": 40,
+    "title": "Loading Bay smoke detector fault",
+    "status": "Open",
+    "category": "Safety",
+    "priority": "Low",
+    "created": "2026-09-01",
+    "location": "Loading Bay",
+    "updated": "2026-09-03",
+    "assignee": "Lee S.Y.",
+    "events": [
+      {
+        "at": "2026-09-01",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-09-01",
+        "actor": "Duty Manager",
+        "note": "Assigned to Lee S.Y."
+      },
+      {
+        "at": "2026-09-03",
+        "actor": "Lee S.Y.",
+        "note": "Site check completed; follow-up required."
+      }
+    ]
+  },
+  {
+    "id": 41,
+    "title": "Car Park B2 CCTV camera offline",
+    "status": "In Progress",
+    "category": "Security",
+    "priority": "High",
+    "created": "2026-08-12",
+    "location": "Car Park B2",
+    "updated": "2026-08-18",
+    "assignee": "Chan M.K.",
+    "events": [
+      {
+        "at": "2026-08-12",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-08-15",
+        "actor": "Duty Manager",
+        "note": "Assigned to Chan M.K."
+      },
+      {
+        "at": "2026-08-18",
+        "actor": "Chan M.K.",
+        "note": "Fault confirmed; corrective work is in progress."
+      }
+    ]
+  },
+  {
+    "id": 42,
+    "title": "Rooftop emergency signage loose",
+    "status": "Open",
+    "category": "Safety",
+    "priority": "Low",
+    "created": "2026-08-18",
+    "location": "Rooftop",
+    "updated": "2026-08-18",
+    "assignee": "Wong T.F.",
+    "events": [
+      {
+        "at": "2026-08-18",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-08-18",
+        "actor": "Duty Manager",
+        "note": "Assigned to Wong T.F."
+      }
+    ]
+  },
+  {
+    "id": 43,
+    "title": "Water staining below podium drain outlet",
+    "status": "Open",
+    "category": "Plumbing",
+    "priority": "Medium",
+    "created": "2026-08-25",
+    "location": "Podium",
+    "updated": "2026-08-26",
+    "assignee": null,
+    "events": [
+      {
+        "at": "2026-08-25",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-08-26",
+        "actor": "Duty Manager",
+        "note": "Moisture traced to the drain connection; access is required from below."
+      }
+    ]
+  },
+  {
+    "id": 44,
+    "title": "G/F Lobby visitor intercom audio distorted",
+    "status": "In Progress",
+    "category": "Security",
+    "priority": "Low",
+    "created": "2026-08-20",
+    "location": "G/F Lobby",
+    "updated": "2026-08-21",
+    "assignee": "Cheung Y.L.",
+    "events": [
+      {
+        "at": "2026-08-20",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-08-21",
+        "actor": "Duty Manager",
+        "note": "Assigned to Cheung Y.L."
+      },
+      {
+        "at": "2026-08-21",
+        "actor": "Cheung Y.L.",
+        "note": "Initial adjustment completed; monitoring before closure."
+      }
+    ]
+  },
+  {
+    "id": 45,
+    "title": "Car Park B1 smoke detector fault",
+    "status": "Closed",
+    "category": "Safety",
+    "priority": "High",
+    "created": "2026-08-27",
+    "location": "Car Park B1",
+    "updated": "2026-08-28",
+    "assignee": "Lee S.Y.",
+    "events": [
+      {
+        "at": "2026-08-27",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-08-27",
+        "actor": "Duty Manager",
+        "note": "Assigned to Lee S.Y."
+      },
+      {
+        "at": "2026-08-28",
+        "actor": "Lee S.Y.",
+        "note": "Work completed and area checked; ticket closed."
+      }
+    ]
+  },
+  {
+    "id": 46,
+    "title": "G/F Lift Lobby arrival chime not sounding",
+    "status": "Closed",
+    "category": "Lift",
+    "priority": "Low",
+    "created": "2026-07-05",
+    "location": "G/F Lift Lobby",
+    "updated": "2026-07-15",
+    "assignee": "Wong T.F.",
+    "events": [
+      {
+        "at": "2026-07-05",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-07-06",
+        "actor": "Duty Manager",
+        "note": "Assigned to Wong T.F."
+      },
+      {
+        "at": "2026-07-08",
+        "actor": "Wong T.F.",
+        "note": "Initial checks completed."
+      },
+      {
+        "at": "2026-07-15",
+        "actor": "Wong T.F.",
+        "note": "Work completed and area checked; ticket closed."
+      }
+    ]
+  },
+  {
+    "id": 47,
+    "title": "11/F Pantry exit sign not illuminated",
+    "status": "In Progress",
+    "category": "Electrical",
+    "priority": "Medium",
+    "created": "2026-07-01",
+    "location": "11/F Pantry",
+    "updated": "2026-09-01",
+    "assignee": "Lam C.H.",
+    "events": [
+      {
+        "at": "2026-07-01",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-07-04",
+        "actor": "Duty Manager",
+        "note": "Assigned to Lam C.H."
+      },
+      {
+        "at": "2026-09-01",
+        "actor": "Lam C.H.",
+        "note": "Initial adjustment completed; monitoring before closure."
+      }
+    ]
+  },
+  {
+    "id": 48,
+    "title": "16/F Pantry tap leaking",
+    "status": "Open",
+    "category": "Plumbing",
+    "priority": "High",
+    "created": "2026-06-28",
+    "location": "16/F Pantry",
+    "updated": "2026-08-06",
+    "assignee": "Cheung Y.L.",
+    "events": [
+      {
+        "at": "2026-06-28",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-07-01",
+        "actor": "Duty Manager",
+        "note": "Assigned to Cheung Y.L."
+      },
+      {
+        "at": "2026-07-25",
+        "actor": "Cheung Y.L.",
+        "note": "Issue reproduced during inspection."
+      },
+      {
+        "at": "2026-08-06",
+        "actor": "Cheung Y.L.",
+        "note": "Initial inspection completed; issue remains open."
+      }
+    ]
+  },
+  {
+    "id": 49,
+    "title": "Lift 1 door sensor fault",
+    "status": "Closed",
+    "category": "Lift",
+    "priority": "Medium",
+    "created": "2026-06-09",
+    "location": "Lift 1",
+    "updated": "2026-07-02",
+    "assignee": "Lee S.Y.",
+    "events": [
+      {
+        "at": "2026-06-09",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-06-10",
+        "actor": "Duty Manager",
+        "note": "Assigned to Lee S.Y."
+      },
+      {
+        "at": "2026-07-02",
+        "actor": "Lee S.Y.",
+        "note": "Repair completed and operation verified; ticket closed."
+      }
+    ]
+  },
+  {
+    "id": 50,
+    "title": "Stored cartons obstructing service staircase exit route",
+    "status": "Open",
+    "category": "Safety",
+    "priority": "Medium",
+    "created": "2026-07-21",
+    "location": "Service Staircase",
+    "updated": "2026-07-24",
+    "assignee": null,
+    "events": [
+      {
+        "at": "2026-07-21",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-07-24",
+        "actor": "Duty Manager",
+        "note": "Cartons removed from one side; tenant asked to clear the remaining storage."
+      }
+    ]
+  },
+  {
+    "id": 51,
+    "title": "Loading Bay wall crack reported",
+    "status": "Closed",
+    "category": "Civil",
+    "priority": "Low",
+    "created": "2026-08-10",
+    "location": "Loading Bay",
+    "updated": "2026-09-03",
+    "assignee": "Ho K.W.",
+    "events": [
+      {
+        "at": "2026-08-10",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-08-11",
+        "actor": "Duty Manager",
+        "note": "Assigned to Ho K.W."
+      },
+      {
+        "at": "2026-09-03",
+        "actor": "Ho K.W.",
+        "note": "Work completed and area checked; ticket closed."
+      }
+    ]
+  },
+  {
+    "id": 52,
+    "title": "Loading Bay handrail loose",
+    "status": "In Progress",
+    "category": "Civil",
+    "priority": "Medium",
+    "created": "2026-08-23",
+    "location": "Loading Bay",
+    "updated": "2026-08-24",
+    "assignee": "Cheung Y.L.",
+    "events": [
+      {
+        "at": "2026-08-23",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-08-24",
+        "actor": "Duty Manager",
+        "note": "Assigned to Cheung Y.L."
+      },
+      {
+        "at": "2026-08-24",
+        "actor": "Cheung Y.L.",
+        "note": "Fault confirmed; corrective work is in progress."
+      }
+    ]
+  },
+  {
+    "id": 53,
+    "title": "5/F Washroom low water pressure",
+    "status": "Open",
+    "category": "Plumbing",
+    "priority": "Low",
+    "created": "2026-07-06",
+    "location": "5/F Washroom",
+    "updated": "2026-09-02",
+    "assignee": "Lee S.Y.",
+    "events": [
+      {
+        "at": "2026-07-06",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-07-07",
+        "actor": "Duty Manager",
+        "note": "Assigned to Lee S.Y."
+      },
+      {
+        "at": "2026-08-25",
+        "actor": "Lee S.Y.",
+        "note": "Initial checks completed."
+      },
+      {
+        "at": "2026-09-02",
+        "actor": "Lee S.Y.",
+        "note": "Access checked; maintenance attendance still required."
+      }
+    ]
+  },
+  {
+    "id": 54,
+    "title": "Loading Bay socket faceplate loose",
+    "status": "Closed",
+    "category": "Electrical",
+    "priority": "Low",
+    "created": "2026-06-02",
+    "location": "Loading Bay",
+    "updated": "2026-06-07",
+    "assignee": "Wong T.F.",
+    "events": [
+      {
+        "at": "2026-06-02",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-06-05",
+        "actor": "Duty Manager",
+        "note": "Assigned to Wong T.F."
+      },
+      {
+        "at": "2026-06-07",
+        "actor": "Wong T.F.",
+        "note": "Repair completed and operation verified; ticket closed."
+      }
+    ]
+  },
+  {
+    "id": 55,
+    "title": "Sticking call button at 15/F lift lobby",
+    "status": "Open",
+    "category": "Lift",
+    "priority": "High",
+    "created": "2026-08-09",
+    "location": "15/F Lift Lobby",
+    "updated": "2026-08-30",
+    "assignee": "Chan M.K.",
+    "events": [
+      {
+        "at": "2026-08-09",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-08-11",
+        "actor": "Duty Manager",
+        "note": "Assigned to Chan M.K."
+      },
+      {
+        "at": "2026-08-14",
+        "actor": "Chan M.K.",
+        "note": "Call registered after repeated presses; button contacts are worn."
+      },
+      {
+        "at": "2026-08-30",
+        "actor": "Chan M.K.",
+        "note": "Replacement button assembly ordered; existing control remains usable."
+      }
+    ]
+  },
+  {
+    "id": 56,
+    "title": "7/F Corridor smoke detector fault",
+    "status": "Open",
+    "category": "Safety",
+    "priority": "Medium",
+    "created": "2026-05-23",
+    "location": "7/F Corridor",
+    "updated": "2026-08-29",
+    "assignee": "Wong T.F.",
+    "events": [
+      {
+        "at": "2026-05-23",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-05-25",
+        "actor": "Duty Manager",
+        "note": "Assigned to Wong T.F."
+      },
+      {
+        "at": "2026-06-16",
+        "actor": "Wong T.F.",
+        "note": "Follow-up attendance recorded."
+      },
+      {
+        "at": "2026-08-29",
+        "actor": "Wong T.F.",
+        "note": "Issue confirmed and retained in the open queue."
+      }
+    ]
+  },
+  {
+    "id": 57,
+    "title": "Plant Room thermostat unresponsive",
+    "status": "Open",
+    "category": "HVAC",
+    "priority": "Medium",
+    "created": "2026-06-22",
+    "location": "Plant Room",
+    "updated": "2026-08-26",
+    "assignee": "Ho K.W.",
+    "events": [
+      {
+        "at": "2026-06-22",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-06-25",
+        "actor": "Duty Manager",
+        "note": "Assigned to Ho K.W."
+      },
+      {
+        "at": "2026-08-26",
+        "actor": "Ho K.W.",
+        "note": "Initial inspection completed; issue remains open."
+      }
+    ]
+  },
+  {
+    "id": 58,
+    "title": "Service Lift call button unresponsive",
+    "status": "Open",
+    "category": "Lift",
+    "priority": "Low",
+    "created": "2026-08-30",
+    "location": "Service Lift",
+    "updated": "2026-09-01",
+    "assignee": "Cheung Y.L.",
+    "events": [
+      {
+        "at": "2026-08-30",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-08-30",
+        "actor": "Duty Manager",
+        "note": "Assigned to Cheung Y.L."
+      },
+      {
+        "at": "2026-09-01",
+        "actor": "Cheung Y.L.",
+        "note": "Access checked; maintenance attendance still required."
+      }
+    ]
+  },
+  {
+    "id": 59,
+    "title": "9/F Washroom pipe joint leaking",
+    "status": "In Progress",
+    "category": "Plumbing",
+    "priority": "Medium",
+    "created": "2026-08-26",
+    "location": "9/F Washroom",
+    "updated": "2026-08-29",
+    "assignee": "Chan M.K.",
+    "events": [
+      {
+        "at": "2026-08-26",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-08-28",
+        "actor": "Duty Manager",
+        "note": "Assigned to Chan M.K."
+      },
+      {
+        "at": "2026-08-29",
+        "actor": "Chan M.K.",
+        "note": "Inspection completed; repair remains in progress."
+      }
+    ]
+  },
+  {
+    "id": 60,
+    "title": "10/F Corridor handrail loose",
+    "status": "Open",
+    "category": "Civil",
+    "priority": "Low",
+    "created": "2026-06-26",
+    "location": "10/F Corridor",
+    "updated": "2026-08-25",
+    "assignee": "Wong T.F.",
+    "events": [
+      {
+        "at": "2026-06-26",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-06-27",
+        "actor": "Duty Manager",
+        "note": "Assigned to Wong T.F."
+      },
+      {
+        "at": "2026-08-25",
+        "actor": "Wong T.F.",
+        "note": "Issue confirmed and retained in the open queue."
+      }
+    ]
+  },
+  {
+    "id": 61,
+    "title": "Service Staircase detector indicator flashing",
+    "status": "Closed",
+    "category": "Safety",
+    "priority": "High",
+    "created": "2026-07-27",
+    "location": "Service Staircase",
+    "updated": "2026-08-23",
+    "assignee": "Lee S.Y.",
+    "events": [
+      {
+        "at": "2026-07-27",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-07-29",
+        "actor": "Duty Manager",
+        "note": "Assigned to Lee S.Y."
+      },
+      {
+        "at": "2026-08-23",
+        "actor": "Lee S.Y.",
+        "note": "Adjustment completed with no further fault found; ticket closed."
+      }
+    ]
+  },
+  {
+    "id": 62,
+    "title": "Rooftop exit sign not illuminated",
+    "status": "Closed",
+    "category": "Electrical",
+    "priority": "Medium",
+    "created": "2026-06-02",
+    "location": "Rooftop",
+    "updated": "2026-06-22",
+    "assignee": "Wong T.F.",
+    "events": [
+      {
+        "at": "2026-06-02",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-06-05",
+        "actor": "Duty Manager",
+        "note": "Assigned to Wong T.F."
+      },
+      {
+        "at": "2026-06-18",
+        "actor": "Wong T.F.",
+        "note": "Follow-up attendance recorded."
+      },
+      {
+        "at": "2026-06-22",
+        "actor": "Wong T.F.",
+        "note": "Repair completed and operation verified; ticket closed."
+      }
+    ]
+  },
+  {
+    "id": 63,
+    "title": "11/F Pantry corridor lights not switching on",
+    "status": "Open",
+    "category": "Electrical",
+    "priority": "Medium",
+    "created": "2026-08-05",
+    "location": "11/F Pantry",
+    "updated": "2026-08-29",
+    "assignee": "Cheung Y.L.",
+    "events": [
+      {
+        "at": "2026-08-05",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-08-05",
+        "actor": "Duty Manager",
+        "note": "Assigned to Cheung Y.L."
+      },
+      {
+        "at": "2026-08-29",
+        "actor": "Cheung Y.L.",
+        "note": "Access checked; maintenance attendance still required."
+      }
+    ]
+  },
+  {
+    "id": 64,
+    "title": "Downlight circuit tripping in 20/F lift lobby",
+    "status": "In Progress",
+    "category": "Electrical",
+    "priority": "Medium",
+    "created": "2026-07-13",
+    "location": "20/F Lift Lobby",
+    "updated": "2026-08-26",
+    "assignee": "Lam C.H.",
+    "events": [
+      {
+        "at": "2026-07-13",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-08-15",
+        "actor": "Duty Manager",
+        "note": "Assigned to Lam C.H."
+      },
+      {
+        "at": "2026-08-26",
+        "actor": "Lam C.H.",
+        "note": "Circuit trips after ten minutes; fittings are being tested in sections."
+      }
+    ]
+  },
+  {
+    "id": 65,
+    "title": "B1 Plant Room water seepage reported",
+    "status": "In Progress",
+    "category": "Plumbing",
+    "priority": "Low",
+    "created": "2026-08-09",
+    "location": "B1 Plant Room",
+    "updated": "2026-08-10",
+    "assignee": "Cheung Y.L.",
+    "events": [
+      {
+        "at": "2026-08-09",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-08-10",
+        "actor": "Duty Manager",
+        "note": "Assigned to Cheung Y.L."
+      },
+      {
+        "at": "2026-08-10",
+        "actor": "Cheung Y.L.",
+        "note": "Technician attended; follow-up work is continuing."
+      }
+    ]
+  },
+  {
+    "id": 66,
+    "title": "Rear Entrance CCTV camera offline",
+    "status": "In Progress",
+    "category": "Security",
+    "priority": "Medium",
+    "created": "2026-06-19",
+    "location": "Rear Entrance",
+    "updated": "2026-08-25",
+    "assignee": "Lee S.Y.",
+    "events": [
+      {
+        "at": "2026-06-19",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-06-22",
+        "actor": "Duty Manager",
+        "note": "Assigned to Lee S.Y."
+      },
+      {
+        "at": "2026-07-29",
+        "actor": "Lee S.Y.",
+        "note": "Issue reproduced during inspection."
+      },
+      {
+        "at": "2026-08-25",
+        "actor": "Lee S.Y.",
+        "note": "Initial adjustment completed; monitoring before closure."
+      }
+    ]
+  },
+  {
+    "id": 67,
+    "title": "10/F Corridor water staining visible",
+    "status": "Closed",
+    "category": "Civil",
+    "priority": "Medium",
+    "created": "2026-07-01",
+    "location": "10/F Corridor",
+    "updated": "2026-07-15",
+    "assignee": "Chan M.K.",
+    "events": [
+      {
+        "at": "2026-07-01",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-07-04",
+        "actor": "Duty Manager",
+        "note": "Assigned to Chan M.K."
+      },
+      {
+        "at": "2026-07-05",
+        "actor": "Chan M.K.",
+        "note": "Issue reproduced during inspection."
+      },
+      {
+        "at": "2026-07-15",
+        "actor": "Chan M.K.",
+        "note": "Issue rectified and tested; ticket closed."
+      }
+    ]
+  },
+  {
+    "id": 68,
+    "title": "Ceiling cassette dripping in 6/F office",
+    "status": "Closed",
+    "category": "HVAC",
+    "priority": "Medium",
+    "created": "2026-07-01",
+    "location": "6/F Office",
+    "updated": "2026-07-28",
+    "assignee": "Chan M.K.",
+    "events": [
+      {
+        "at": "2026-07-01",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-07-03",
+        "actor": "Duty Manager",
+        "note": "Assigned to Chan M.K."
+      },
+      {
+        "at": "2026-07-28",
+        "actor": "Chan M.K.",
+        "note": "Drain pan cleared and condensate flow tested; ticket closed."
+      }
+    ]
+  },
+  {
+    "id": 69,
+    "title": "Dripping ceiling cassette above 12/F workstation",
+    "status": "Closed",
+    "category": "HVAC",
+    "priority": "Low",
+    "created": "2026-08-01",
+    "location": "12/F Office",
+    "updated": "2026-08-05",
+    "assignee": "Wong T.F.",
+    "events": [
+      {
+        "at": "2026-08-01",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-08-04",
+        "actor": "Duty Manager",
+        "note": "Assigned to Wong T.F."
+      },
+      {
+        "at": "2026-08-05",
+        "actor": "Wong T.F.",
+        "note": "Blocked condensate outlet cleared; no further dripping observed; ticket closed."
+      }
+    ]
+  },
+  {
+    "id": 70,
+    "title": "Rooftop power socket not working",
+    "status": "Closed",
+    "category": "Electrical",
+    "priority": "Medium",
+    "created": "2026-07-10",
+    "location": "Rooftop",
+    "updated": "2026-07-23",
+    "assignee": "Chan M.K.",
+    "events": [
+      {
+        "at": "2026-07-10",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-07-11",
+        "actor": "Duty Manager",
+        "note": "Assigned to Chan M.K."
+      },
+      {
+        "at": "2026-07-23",
+        "actor": "Chan M.K.",
+        "note": "Work completed and area checked; ticket closed."
+      }
+    ]
+  },
+  {
+    "id": 71,
+    "title": "Condensate dripping from 3/F ceiling cassette",
+    "status": "Closed",
+    "category": "HVAC",
+    "priority": "Medium",
+    "created": "2026-08-31",
+    "location": "3/F Office",
+    "updated": "2026-09-02",
+    "assignee": "Wong T.F.",
+    "events": [
+      {
+        "at": "2026-08-31",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-08-31",
+        "actor": "Duty Manager",
+        "note": "Assigned to Wong T.F."
+      },
+      {
+        "at": "2026-09-02",
+        "actor": "Wong T.F.",
+        "note": "Condensate hose reseated and tested dry; ticket closed."
+      }
+    ]
+  },
+  {
+    "id": 72,
+    "title": "18/F Office airflow uneven",
+    "status": "In Progress",
+    "category": "HVAC",
+    "priority": "Low",
+    "created": "2026-07-30",
+    "location": "18/F Office",
+    "updated": "2026-08-30",
+    "assignee": "Wong T.F.",
+    "events": [
+      {
+        "at": "2026-07-30",
+        "actor": "System",
+        "note": "Ticket logged."
+      },
+      {
+        "at": "2026-08-01",
+        "actor": "Duty Manager",
+        "note": "Assigned to Wong T.F."
+      },
+      {
+        "at": "2026-08-30",
+        "actor": "Wong T.F.",
+        "note": "Technician attended; follow-up work is continuing."
+      }
+    ]
+  }
+]
