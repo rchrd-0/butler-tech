@@ -1,0 +1,18 @@
+{
+	"name": "butler-tech",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"build": "pnpm --recursive --if-present build",
+		"dev": "pnpm --recursive --parallel dev",
+		"dev:web": "pnpm --filter @butler-tech/web dev",
+		"dev:server": "pnpm --filter @butler-tech/server dev",
+		"check": "pnpm --recursive check",
+		"fix": "pnpm --recursive fix",
+		"test": "pnpm --recursive --if-present test"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "catalog:"
+	},
+	"packageManager": "pnpm@12.3.1+sha512.3c14c15408d1489d350f8ed7f93361d26cc707054f6849a4eea3bb7407ff4fe4564b413a1c421a773a176ab1168a8df1c7d548f2cd0dc7d344f58c4e680a5b18"
+}

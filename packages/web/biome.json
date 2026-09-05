@@ -1,0 +1,25 @@
+{
+  "extends": "//",
+  "linter": {
+    "domains": {
+      "react": "recommended",
+      "tailwind": "recommended"
+    }
+  },
+  "overrides": [
+    {
+      "includes": ["**/src/components/**", "**/assets/**", "**/public/**"],
+      "linter": {
+        "rules": {
+          "performance": {
+            "noJsxPropsBind": "off"
+          },
+          "style": {
+            "noExportedImports": "off"
+          },
+          "a11y": "off"
+        }
+      }
+    }
+  ]
+}
