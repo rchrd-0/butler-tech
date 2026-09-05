@@ -1,19 +1,47 @@
 import { move as moveWidget } from "@dnd-kit/helpers";
 import { DragDropProvider } from "@dnd-kit/react";
 import { useSortable } from "@dnd-kit/react/sortable";
-import { DotsSixVerticalIcon } from "@phosphor-icons/react";
+import {
+  ArrowCounterClockwiseIcon,
+  DotsSixVerticalIcon,
+  SlidersHorizontalIcon,
+  XIcon,
+} from "@phosphor-icons/react";
 import { cn } from "cn";
 import { useMemo, useState } from "react";
 import {
   TicketPriorityIndicator,
   TicketStatusIndicator,
 } from "#/components/tickets/ticket-indicators";
+import { Button } from "#/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "#/components/ui/card";
-import { loadWidgetOrder, saveWidgetOrder } from "#/lib/dashboard-layout";
+import {
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "#/components/ui/dropdown-menu";
+import {
+  DEFAULT_DASHBOARD_LAYOUT,
+  DEFAULT_WIDGET_ORDER,
+  loadDashboardLayout,
+  saveDashboardLayout,
+} from "#/lib/dashboard-layout";
 import { formatRelativeDays, STALE_AFTER_DAYS } from "#/lib/ticket-freshness";
 import { summarizeTicketOperations } from "#/lib/ticket-operations";
 
-function WidgetCard({ children, footer, id, index, title, widgetId }) {
+const WIDGET_LABELS = {
+  status: "Status counts",
+  stale: "Stale — no activity",
+  priority: "Priority · active",
+  location: "Active by location",
+};
+
+function WidgetCard({ children, footer, id, index, onHide, title, widgetId }) {
   const { handleRef, isDragSource, ref } = useSortable({ id: widgetId, index });
 
   return (
@@ -27,22 +55,34 @@ function WidgetCard({ children, footer, id, index, title, widgetId }) {
         role="group"
         size="sm"
       >
-        <CardHeader
-          aria-label={`Move ${title} widget`}
-          className="flex h-8 shrink-0 cursor-grab items-center border-border-subtle border-b bg-table-head px-2.5 py-0 pb-0! transition-colors hover:bg-border-subtle focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground focus-visible:ring-inset active:cursor-grabbing"
-          ref={handleRef}
-        >
-          <CardTitle className="min-w-0 flex-1">
-            <h3 className="truncate font-bold text-[11.5px] uppercase tracking-[0.11em]" id={id}>
-              {title}
-            </h3>
-          </CardTitle>
-          <span
-            aria-hidden="true"
-            className="-mr-1 flex size-6 shrink-0 items-center justify-center text-muted-foreground"
+        <CardHeader className="flex h-8 shrink-0 items-center border-border-subtle border-b bg-table-head p-0 pb-0!">
+          <div
+            aria-label={`Move ${title} widget`}
+            className="flex h-full min-w-0 flex-1 cursor-grab items-center px-2.5 transition-colors hover:bg-border-subtle focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground focus-visible:ring-inset active:cursor-grabbing"
+            ref={handleRef}
           >
-            <DotsSixVerticalIcon className="size-4" weight="bold" />
-          </span>
+            <span
+              aria-hidden="true"
+              className="-ml-1 flex size-6 shrink-0 items-center justify-center text-foreground"
+            >
+              <DotsSixVerticalIcon className="size-4" weight="bold" />
+            </span>
+            <CardTitle className="min-w-0 flex-1">
+              <h3 className="truncate font-bold text-[11.5px] uppercase tracking-[0.11em]" id={id}>
+                {title}
+              </h3>
+            </CardTitle>
+          </div>
+          <Button
+            aria-label={`Hide ${title} widget`}
+            className="h-full border-border-subtle border-l text-muted-foreground hover:text-foreground"
+            onClick={() => onHide(widgetId)}
+            size="icon-xs"
+            type="button"
+            variant="ghost"
+          >
+            <XIcon />
+          </Button>
         </CardHeader>
         <CardContent className="flex min-h-0 flex-1 flex-col px-2.5 pt-2.5 pb-1.5">
           {children}
@@ -57,12 +97,13 @@ function WidgetCard({ children, footer, id, index, title, widgetId }) {
   );
 }
 
-function StatusWidget({ index, statuses, unassignedCount }) {
+function StatusWidget({ index, onHide, statuses, unassignedCount }) {
   return (
     <WidgetCard
       id="status-counts-heading"
       index={index}
-      title="Status counts"
+      onHide={onHide}
+      title={WIDGET_LABELS.status}
       widgetId="status"
       footer={`${unassignedCount} unassigned active`}
     >
@@ -103,12 +144,13 @@ function StatusWidget({ index, statuses, unassignedCount }) {
   );
 }
 
-function StaleWidget({ index, staleCount, staleTickets }) {
+function StaleWidget({ index, onHide, staleCount, staleTickets }) {
   return (
     <WidgetCard
       id="stale-tickets-heading"
       index={index}
-      title="Stale — no activity"
+      onHide={onHide}
+      title={WIDGET_LABELS.stale}
       widgetId="stale"
       footer={`${staleCount} active · no update in ${STALE_AFTER_DAYS}+ days`}
     >
@@ -141,12 +183,13 @@ function StaleWidget({ index, staleCount, staleTickets }) {
   );
 }
 
-function PriorityWidget({ index, priorities }) {
+function PriorityWidget({ index, onHide, priorities }) {
   return (
     <WidgetCard
       id="active-priority-heading"
       index={index}
-      title="Priority · active"
+      onHide={onHide}
+      title={WIDGET_LABELS.priority}
       widgetId="priority"
     >
       <div aria-hidden="true" className="mb-2.5 flex h-2.5 shrink-0 bg-border-subtle">
@@ -189,14 +232,15 @@ function PriorityWidget({ index, priorities }) {
   );
 }
 
-function LocationWidget({ index, locations }) {
+function LocationWidget({ index, locations, onHide }) {
   const maximumCount = locations[0]?.count ?? 1;
 
   return (
     <WidgetCard
       id="active-locations-heading"
       index={index}
-      title="Active by location"
+      onHide={onHide}
+      title={WIDGET_LABELS.location}
       widgetId="location"
     >
       {locations.length === 0 ? (
@@ -223,18 +267,90 @@ function LocationWidget({ index, locations }) {
   );
 }
 
+function DashboardLayoutMenu({ hiddenWidgetIds, onReset, onVisibilityChange }) {
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger render={<Button size="sm" type="button" variant="outline" />}>
+        <SlidersHorizontalIcon data-icon="inline-start" />
+        Layout
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end" className="w-64">
+        <DropdownMenuGroup>
+          <DropdownMenuLabel className="label-eyebrow text-foreground">
+            Dashboard layout
+          </DropdownMenuLabel>
+        </DropdownMenuGroup>
+        <DropdownMenuSeparator />
+        <DropdownMenuGroup>
+          <DropdownMenuLabel className="label-eyebrow">Widgets</DropdownMenuLabel>
+          {DEFAULT_WIDGET_ORDER.map((widgetId) => (
+            <DropdownMenuCheckboxItem
+              checked={!hiddenWidgetIds.includes(widgetId)}
+              key={widgetId}
+              onCheckedChange={(visible) => onVisibilityChange(widgetId, visible)}
+            >
+              {WIDGET_LABELS[widgetId]}
+            </DropdownMenuCheckboxItem>
+          ))}
+        </DropdownMenuGroup>
+        <DropdownMenuSeparator />
+        <DropdownMenuGroup>
+          <DropdownMenuItem onClick={onReset}>
+            <ArrowCounterClockwiseIcon />
+            Reset to default
+          </DropdownMenuItem>
+        </DropdownMenuGroup>
+        <p className="px-2 pt-1 pb-2 text-[11.5px] text-muted-foreground leading-relaxed">
+          Drag widget titles to reorder. Preferences are saved in this browser.
+        </p>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+}
+
 export function TicketWidgets({ tickets }) {
   const summary = useMemo(() => summarizeTicketOperations(tickets), [tickets]);
-  const [widgetOrder, setWidgetOrder] = useState(loadWidgetOrder);
+  const [dashboardLayout, setDashboardLayout] = useState(loadDashboardLayout);
+  const { hiddenWidgetIds, widgetOrder } = dashboardLayout;
+  const visibleWidgetIds = widgetOrder.filter((widgetId) => !hiddenWidgetIds.includes(widgetId));
+  const widgetGridColumns = visibleWidgetIds
+    .map((widgetId) => `minmax(260px, ${widgetId === "stale" ? 1.12 : 1}fr)`)
+    .join(" ");
+
+  const updateDashboardLayout = (nextLayout) => {
+    setDashboardLayout(nextLayout);
+    saveDashboardLayout(nextLayout);
+  };
 
   const handleDragEnd = (event) => {
     if (event.canceled) return;
 
-    const nextWidgetOrder = moveWidget(widgetOrder, event);
-    if (nextWidgetOrder === widgetOrder) return;
+    const nextVisibleWidgetIds = moveWidget(visibleWidgetIds, event);
+    if (nextVisibleWidgetIds === visibleWidgetIds) return;
 
-    setWidgetOrder(nextWidgetOrder);
-    saveWidgetOrder(nextWidgetOrder);
+    let visibleIndex = 0;
+    const nextWidgetOrder = widgetOrder.map((widgetId) =>
+      hiddenWidgetIds.includes(widgetId) ? widgetId : nextVisibleWidgetIds[visibleIndex++],
+    );
+
+    updateDashboardLayout({ ...dashboardLayout, widgetOrder: nextWidgetOrder });
+  };
+
+  const handleVisibilityChange = (widgetId, visible) => {
+    const nextHiddenWidgetIds = visible
+      ? hiddenWidgetIds.filter((hiddenWidgetId) => hiddenWidgetId !== widgetId)
+      : [...hiddenWidgetIds, widgetId];
+
+    updateDashboardLayout({ ...dashboardLayout, hiddenWidgetIds: nextHiddenWidgetIds });
+  };
+
+  const handleHideWidget = (widgetId) => handleVisibilityChange(widgetId, false);
+
+  const handleReset = () => {
+    updateDashboardLayout({
+      widgetOrder: [...DEFAULT_DASHBOARD_LAYOUT.widgetOrder],
+      hiddenWidgetIds: [],
+    });
   };
 
   const renderWidget = (widgetId, index) => {
@@ -244,6 +360,7 @@ export function TicketWidgets({ tickets }) {
           <StatusWidget
             index={index}
             key={widgetId}
+            onHide={handleHideWidget}
             statuses={summary.statuses}
             unassignedCount={summary.unassignedCount}
           />
@@ -253,14 +370,29 @@ export function TicketWidgets({ tickets }) {
           <StaleWidget
             index={index}
             key={widgetId}
+            onHide={handleHideWidget}
             staleCount={summary.staleCount}
             staleTickets={summary.staleTickets}
           />
         );
       case "priority":
-        return <PriorityWidget index={index} key={widgetId} priorities={summary.priorities} />;
+        return (
+          <PriorityWidget
+            index={index}
+            key={widgetId}
+            onHide={handleHideWidget}
+            priorities={summary.priorities}
+          />
+        );
       case "location":
-        return <LocationWidget index={index} key={widgetId} locations={summary.locations} />;
+        return (
+          <LocationWidget
+            index={index}
+            key={widgetId}
+            locations={summary.locations}
+            onHide={handleHideWidget}
+          />
+        );
     }
   };
 
@@ -269,16 +401,28 @@ export function TicketWidgets({ tickets }) {
       aria-labelledby="operational-overview-heading"
       className="shrink-0 px-[18px] pt-[14px]"
     >
-      <h2 className="sr-only" id="operational-overview-heading">
-        Operational overview
-      </h2>
-      <div className="mx-auto w-full max-w-shell overflow-x-auto">
-        <DragDropProvider onDragEnd={handleDragEnd}>
-          <div className="grid min-w-[1102px] grid-cols-[1fr_1.12fr_1fr_1fr] gap-3">
-            {widgetOrder.map(renderWidget)}
-          </div>
-        </DragDropProvider>
+      <div className="mx-auto mb-2 flex h-7 w-full max-w-shell items-center justify-between">
+        <h2
+          className="label-eyebrow text-[11.5px] text-muted-foreground"
+          id="operational-overview-heading"
+        >
+          Operational overview
+        </h2>
+        <DashboardLayoutMenu
+          hiddenWidgetIds={hiddenWidgetIds}
+          onReset={handleReset}
+          onVisibilityChange={handleVisibilityChange}
+        />
       </div>
+      {visibleWidgetIds.length > 0 ? (
+        <div className="mx-auto w-full max-w-shell overflow-x-auto">
+          <DragDropProvider onDragEnd={handleDragEnd}>
+            <div className="grid gap-3" style={{ gridTemplateColumns: widgetGridColumns }}>
+              {visibleWidgetIds.map(renderWidget)}
+            </div>
+          </DragDropProvider>
+        </div>
+      ) : null}
     </section>
   );
 }

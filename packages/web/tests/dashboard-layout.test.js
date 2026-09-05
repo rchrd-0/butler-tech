@@ -1,9 +1,9 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import {
-  DEFAULT_WIDGET_ORDER,
-  loadWidgetOrder,
-  saveWidgetOrder,
+  DEFAULT_DASHBOARD_LAYOUT,
+  loadDashboardLayout,
+  saveDashboardLayout,
 } from "../src/lib/dashboard-layout.js";
 
 function createStorage(value = null) {
@@ -18,22 +18,43 @@ function createStorage(value = null) {
   };
 }
 
-test("loads a complete saved widget order and rejects invalid layouts", () => {
+test("loads saved dashboard layouts and rejects invalid values", () => {
   const savedOrder = ["location", "status", "stale", "priority"];
-  const validStorage = createStorage(JSON.stringify({ version: 1, widgetOrder: savedOrder }));
+  const validStorage = createStorage(
+    JSON.stringify({
+      version: 1,
+      widgetOrder: savedOrder,
+      hiddenWidgetIds: ["status", "priority"],
+    }),
+  );
+  const previousStorage = createStorage(JSON.stringify({ version: 1, widgetOrder: savedOrder }));
   const invalidStorage = createStorage(
     JSON.stringify({ version: 1, widgetOrder: ["status", "stale", "priority"] }),
   );
+  const invalidVisibilityStorage = createStorage(
+    JSON.stringify({ version: 1, widgetOrder: savedOrder, hiddenWidgetIds: ["unknown"] }),
+  );
 
-  assert.deepEqual(loadWidgetOrder(validStorage), savedOrder);
-  assert.deepEqual(loadWidgetOrder(invalidStorage), DEFAULT_WIDGET_ORDER);
+  assert.deepEqual(loadDashboardLayout(validStorage), {
+    widgetOrder: savedOrder,
+    hiddenWidgetIds: ["status", "priority"],
+  });
+  assert.deepEqual(loadDashboardLayout(previousStorage), {
+    widgetOrder: savedOrder,
+    hiddenWidgetIds: [],
+  });
+  assert.deepEqual(loadDashboardLayout(invalidStorage), DEFAULT_DASHBOARD_LAYOUT);
+  assert.deepEqual(loadDashboardLayout(invalidVisibilityStorage), DEFAULT_DASHBOARD_LAYOUT);
 });
 
-test("saves widget order in the versioned dashboard layout", () => {
+test("saves widget order and visibility in one versioned dashboard layout", () => {
   const storage = createStorage();
-  const widgetOrder = ["priority", "location", "status", "stale"];
+  const layout = {
+    widgetOrder: ["priority", "location", "status", "stale"],
+    hiddenWidgetIds: ["status"],
+  };
 
-  saveWidgetOrder(widgetOrder, storage);
+  saveDashboardLayout(layout, storage);
 
-  assert.deepEqual(JSON.parse(storage.value), { version: 1, widgetOrder });
+  assert.deepEqual(JSON.parse(storage.value), { version: 1, ...layout });
 });
