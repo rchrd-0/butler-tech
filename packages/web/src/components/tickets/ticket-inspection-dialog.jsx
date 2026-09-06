@@ -107,7 +107,13 @@ export function TicketInspectionDialog({ ticket, onOpenChange }) {
             </p>
             <Button
               nativeButton={false}
-              render={<Link params={{ id: String(ticket.id) }} to="/tickets/$id" />}
+              render={
+                <Link
+                  onClick={() => onOpenChange(false)}
+                  params={{ id: String(ticket.id) }}
+                  to="/tickets/$id"
+                />
+              }
             >
               Open full record
               <ArrowRightIcon data-icon="inline-end" />

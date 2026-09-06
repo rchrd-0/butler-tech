@@ -90,7 +90,11 @@ function TicketsPage() {
             onChange={updateFilter}
             onClear={clearFilters}
           />
-          <TicketWidgets tickets={tickets} />
+          <TicketWidgets
+            tickets={tickets}
+            onInspect={setSelectedTicket}
+            onStatusChange={(status) => updateFilter("status", status)}
+          />
           <TicketTable tickets={tickets} filters={filters} onInspect={setSelectedTicket} />
           <TicketInspectionDialog
             ticket={selectedTicket}

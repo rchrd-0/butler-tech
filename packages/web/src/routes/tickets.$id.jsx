@@ -41,6 +41,8 @@ async function loadTicket({ params, abortController }) {
 export const Route = createFileRoute("/tickets/$id")({
   loader: loadTicket,
   staleTime: Number.POSITIVE_INFINITY,
+  pendingMs: 250,
+  pendingMinMs: 300,
   pendingComponent: TicketRecordPending,
   errorComponent: TicketRecordError,
   notFoundComponent: TicketRecordNotFound,

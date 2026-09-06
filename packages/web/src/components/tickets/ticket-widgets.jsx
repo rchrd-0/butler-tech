@@ -97,7 +97,7 @@ function WidgetCard({ children, footer, id, index, onHide, title, widgetId }) {
   );
 }
 
-function StatusWidget({ index, onHide, statuses, unassignedCount }) {
+function StatusWidget({ index, onHide, onStatusChange, statuses, unassignedCount }) {
   return (
     <WidgetCard
       id="status-counts-heading"
@@ -107,44 +107,48 @@ function StatusWidget({ index, onHide, statuses, unassignedCount }) {
       widgetId="status"
       footer={`${unassignedCount} unassigned active`}
     >
-      <dl className="flex flex-1 flex-col">
+      <ul className="flex flex-1 flex-col">
         {statuses.map(({ name, count }, index) => {
           const closed = name === "Closed";
 
           return (
-            <div
-              className={cn(
-                "flex h-10 shrink-0 items-center gap-2.5",
-                index < statuses.length - 1 && "border-border-subtle border-b",
-              )}
-              key={name}
-            >
-              <dt
+            <li key={name}>
+              <button
+                aria-label={`Filter tickets by ${name} status (${count})`}
                 className={cn(
-                  "flex flex-1 items-center gap-2.5 text-[13.5px]",
-                  closed ? "text-muted-foreground" : "font-medium",
+                  "flex h-10 w-full shrink-0 items-center gap-2.5 border-border-subtle text-left transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground focus-visible:ring-inset",
+                  index < statuses.length - 1 && "border-b",
                 )}
+                onClick={() => onStatusChange(name)}
+                type="button"
               >
                 <TicketStatusIndicator status={name} />
-                <span>{name}</span>
-              </dt>
-              <dd
-                className={cn(
-                  "font-mono text-[20px] tracking-[-0.02em]",
-                  closed && "text-muted-foreground",
-                )}
-              >
-                {count}
-              </dd>
-            </div>
+                <span
+                  className={cn(
+                    "flex-1 text-[13.5px]",
+                    closed ? "text-muted-foreground" : "font-medium",
+                  )}
+                >
+                  {name}
+                </span>
+                <span
+                  className={cn(
+                    "font-mono text-[20px] tracking-[-0.02em]",
+                    closed && "text-muted-foreground",
+                  )}
+                >
+                  {count}
+                </span>
+              </button>
+            </li>
           );
         })}
-      </dl>
+      </ul>
     </WidgetCard>
   );
 }
 
-function StaleWidget({ index, onHide, staleCount, staleTickets }) {
+function StaleWidget({ index, onHide, onInspect, staleCount, staleTickets }) {
   return (
     <WidgetCard
       id="stale-tickets-heading"
@@ -161,20 +165,24 @@ function StaleWidget({ index, onHide, staleCount, staleTickets }) {
       ) : (
         <ol className="flex min-h-0 flex-1 flex-col">
           {staleTickets.map((ticket) => (
-            <li
-              className="flex h-[26px] shrink-0 items-center gap-2 border-border-subtle border-b last:border-b-0"
-              key={ticket.id}
-            >
-              <span className="shrink-0 font-mono text-[11.5px] text-muted-foreground">
-                #{ticket.id}
-              </span>
-              <span className="min-w-0 flex-1 truncate text-[13px]">{ticket.title}</span>
-              <time
-                className="shrink-0 font-medium font-mono text-[12px]"
-                dateTime={ticket.updated}
+            <li className="border-border-subtle border-b last:border-b-0" key={ticket.id}>
+              <button
+                aria-haspopup="dialog"
+                className="flex h-[26px] w-full shrink-0 items-center gap-2 text-left transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground focus-visible:ring-inset"
+                onClick={() => onInspect(ticket)}
+                type="button"
               >
-                {formatRelativeDays(ticket.freshness.activityDays)}
-              </time>
+                <span className="shrink-0 font-mono text-[11.5px] text-muted-foreground">
+                  #{ticket.id}
+                </span>
+                <span className="min-w-0 flex-1 truncate text-[13px]">{ticket.title}</span>
+                <time
+                  className="shrink-0 font-medium font-mono text-[12px]"
+                  dateTime={ticket.updated}
+                >
+                  {formatRelativeDays(ticket.freshness.activityDays)}
+                </time>
+              </button>
             </li>
           ))}
         </ol>
@@ -276,13 +284,7 @@ function DashboardLayoutMenu({ hiddenWidgetIds, onReset, onVisibilityChange }) {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-64">
         <DropdownMenuGroup>
-          <DropdownMenuLabel className="label-eyebrow text-foreground">
-            Dashboard layout
-          </DropdownMenuLabel>
-        </DropdownMenuGroup>
-        <DropdownMenuSeparator />
-        <DropdownMenuGroup>
-          <DropdownMenuLabel className="label-eyebrow">Widgets</DropdownMenuLabel>
+          <DropdownMenuLabel className="label-eyebrow text-foreground">Widgets</DropdownMenuLabel>
           {DEFAULT_WIDGET_ORDER.map((widgetId) => (
             <DropdownMenuCheckboxItem
               checked={!hiddenWidgetIds.includes(widgetId)}
@@ -308,7 +310,7 @@ function DashboardLayoutMenu({ hiddenWidgetIds, onReset, onVisibilityChange }) {
   );
 }
 
-export function TicketWidgets({ tickets }) {
+export function TicketWidgets({ tickets, onInspect, onStatusChange }) {
   const summary = useMemo(() => summarizeTicketOperations(tickets), [tickets]);
   const [dashboardLayout, setDashboardLayout] = useState(loadDashboardLayout);
   const { hiddenWidgetIds, widgetOrder } = dashboardLayout;
@@ -361,6 +363,7 @@ export function TicketWidgets({ tickets }) {
             index={index}
             key={widgetId}
             onHide={handleHideWidget}
+            onStatusChange={onStatusChange}
             statuses={summary.statuses}
             unassignedCount={summary.unassignedCount}
           />
@@ -371,6 +374,7 @@ export function TicketWidgets({ tickets }) {
             index={index}
             key={widgetId}
             onHide={handleHideWidget}
+            onInspect={onInspect}
             staleCount={summary.staleCount}
             staleTickets={summary.staleTickets}
           />
