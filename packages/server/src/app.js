@@ -1,20 +1,11 @@
-import cors from "cors";
 import express from "express";
 import * as v from "valibot";
 import { evlog } from "#/lib/logger.js";
 import ticketRouter from "#/modules/tickets/router.js";
 
-const corsOrigin = process.env.CORS_ORIGIN?.trim();
-
 const app = express();
 
 app.use(evlog());
-app.use(
-  cors({
-    origin: corsOrigin || false,
-    methods: ["GET"],
-  }),
-);
 
 app.get("/health", (req, res) => {
   req.log.set({
